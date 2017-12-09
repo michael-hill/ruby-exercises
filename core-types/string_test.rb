@@ -10,65 +10,56 @@ class StringTest < Minitest::Test
   end
 
   def test_upcase
-    skip
-    assert_equal __, "run!".upcase
+    assert_equal "RUN!", "run!".upcase
   end
 
   def test_downcase
-    skip
-    assert_equal __, "I'M OVER HERE".downcase
+    assert_equal "i'm over here", "I'M OVER HERE".downcase
   end
 
   def test_check_if_all_caps
-    skip
-    maybe "abc".upcase == "abc"
-    maybe "ABC".upcase == "ABC"
-    maybe "Hæ?".upcase == "Hæ?"
-    maybe "1, 2, 3".upcase == "1, 2, 3"
+    refute "abc".upcase == "abc"
+    assert "ABC".upcase == "ABC"
+    refute "Hæ?".upcase == "Hæ?"
+    assert "1, 2, 3".upcase == "1, 2, 3"
   end
 
   def test_if_all_lowercase
-    skip
-    maybe "abc".downcase == "abc"
-    maybe "ABC".downcase == "ABC"
-    maybe "Æsj!".downcase == "Æsj!"
-    maybe "1, 2, 3".downcase == "1, 2, 3"
+    assert "abc".downcase == "abc"
+    refute "ABC".downcase == "ABC"
+    refute "Æsj!".downcase == "Æsj!"
+    assert "1, 2, 3".downcase == "1, 2, 3"
   end
 
   def test_upper_and_lower_case
-    skip
-    maybe "abc".downcase == "abc".upcase
-    maybe "1, 2, 3".downcase == "1, 2, 3".upcase
-    maybe "%$#!!1!".downcase == "%$#!!1!".upcase
+    refute "abc".downcase == "abc".upcase
+    assert "1, 2, 3".downcase == "1, 2, 3".upcase
+    assert "%$#!!1!".downcase == "%$#!!1!".upcase
   end
 
   def test_chop
-    skip
-    assert_equal __, "hello!!!".chop
-    assert_equal __, "hello?!".chop
-    assert_equal __, "hello.".chop
-    assert_equal __, "hello".chop
+    assert_equal "hello!!", "hello!!!".chop
+    assert_equal "hello?", "hello?!".chop
+    assert_equal "hello", "hello.".chop
+    assert_equal "hell", "hello".chop
   end
 
   def test_chomp
-    skip
-    assert_equal __, "go\n\n".chomp
-    assert_equal __, "go\n".chomp
-    assert_equal __, "go".chomp
+    assert_equal "go\n", "go\n\n".chomp
+    assert_equal "go", "go\n".chomp
+    assert_equal "go", "go".chomp
   end
 
   def test_delete
-    skip
-    assert_equal __, "eeny, meeny, miny, moe".delete("e")
-    assert_equal __, "eeny, meeny, miny, moe".delete("m")
-    assert_equal __, "eeny, meeny, miny, moe".delete("n")
+    assert_equal "ny, mny, miny, mo", "eeny, meeny, miny, moe".delete("e")
+    assert_equal "eeny, eeny, iny, oe", "eeny, meeny, miny, moe".delete("m")
+    assert_equal "eey, meey, miy, moe", "eeny, meeny, miny, moe".delete("n")
   end
 
   def test_reverse
-    skip
-    assert_equal __, "ZOMG SO MUCH FUN!!1!".reverse
-    assert_equal __, "bubbly pies".reverse
-    assert_equal __, "racecar".reverse
+    assert_equal "!1!!NUF HCUM OS GMOZ", "ZOMG SO MUCH FUN!!1!".reverse
+    assert_equal "seip ylbbub", "bubbly pies".reverse
+    assert_equal "racecar", "racecar".reverse
   end
 
   def test_squeeze
